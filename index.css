@@ -7,6 +7,7 @@
   height: 100vh;
   width: 100%;
   font-family: "WorkSans";
+  -webkit-tap-highlight-color: transparent;
 }
 
 .root::before {
@@ -30,6 +31,7 @@
   margin: 0;
   border-radius: 15px;
   z-index: 1;
+  margin: 0 20px;
 }
 
 .title {
@@ -40,11 +42,13 @@
 }
 
 .answer {
-  /* color: #6b7280; */
-  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
 }
-.answer:nth-of-type() {
-  padding: 100px;
+
+.answer:last-of-type {
+  margin: 0;
+  border-bottom: none;
 }
 
 .summary {
@@ -57,9 +61,19 @@
 }
 
 .details {
-  border-bottom: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.details summary img {
+  transition: transform 0.3s ease;
+}
+
+.details[open] summary img {
+  transform: rotate(180deg);
 }
 
 .text {
   color: #6b7280;
+  font-weight: 400;
 }
