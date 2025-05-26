@@ -1,22 +1,34 @@
 const details = document.querySelectorAll("details");
-const summarys = document.querySelectorAll("summary");
 
-summarys.forEach((summary) => {
-  summary.addEventListener("click", () => {
-    const img = summary.querySelector("img");
-    const detail = summary.closest("details");
+details.forEach((detail) => {
+  const summary = detail.querySelector("summary");
+  const img = summary.querySelector("img");
+
+  img.src = detail.open
+    ? "./assets/images/icon-minus.svg"
+    : "./assets/images/icon-plus.svg";
+  img.alt = detail.open ? "minus" : "plus";
+
+  summary.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    details.forEach((d) => {
+      if (d !== detail) {
+        d.removeAttribute("open");
+        const otherImg = d.querySelector("img");
+        otherImg.src = "./assets/images/icon-plus.svg";
+        otherImg.alt = "plus";
+      }
+    });
+
     if (detail.open) {
-      img.src = "./assets/images/icon-minus.svg";
-      img.alt = "minus";
-    } else {
-      details.forEach((detail) => {
-        detail.open = false;
-        const img = detail.querySelector("img");
-        img.src = "./assets/images/icon-minus.svg";
-        img.alt = "minus";
-      });
+      detail.removeAttribute("open");
       img.src = "./assets/images/icon-plus.svg";
       img.alt = "plus";
+    } else {
+      detail.setAttribute("open", "");
+      img.src = "./assets/images/icon-minus.svg";
+      img.alt = "minus";
     }
   });
 });
