@@ -1,0 +1,79 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3e8ff;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  font-family: "WorkSans";
+  -webkit-tap-highlight-color: transparent;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 25%;
+  width: 100%;
+  background-image: url("./assets/images/background-pattern-desktop.svg");
+}
+
+.faq {
+  font-size: 16px;
+  font-weight: 600;
+  width: 550px;
+  list-style-type: none;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 30px 30px;
+  margin: 0;
+  border-radius: 15px;
+  z-index: 1;
+  margin: 0 20px;
+}
+
+.title {
+  display: flex;
+  font-weight: 700;
+  gap: 15px;
+  font-size: 1.5rem;
+}
+
+.answer {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.answer:last-of-type {
+  margin: 0;
+  border-bottom: none;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.details {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.details summary img {
+  transition: transform 0.3s ease;
+}
+
+.details[open] summary img {
+  transform: rotate(180deg);
+}
+
+.text {
+  color: #6b7280;
+  font-weight: 400;
+}
